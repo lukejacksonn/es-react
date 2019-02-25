@@ -21188,16 +21188,4 @@ var foundDevTools = injectIntoDevTools({
   }
 }
 
-
-
-var ReactDOM$2 = Object.freeze({
-	default: ReactDOM
-});
-
-var ReactDOM$3 = ( ReactDOM$2 && ReactDOM ) || ReactDOM$2;
-
-// TODO: decide on the top-level export form.
-// This is hacky but makes it work with both Rollup and Jest.
-var reactDom = ReactDOM$3.default || ReactDOM$3;
-
-export default reactDom;
+export default ReactDOM;

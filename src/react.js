@@ -3130,16 +3130,4 @@ if (enableStableConcurrentModeAPIs) {
   React.unstable_Profiler = undefined;
 }
 
-
-
-var React$2 = Object.freeze({
-	default: React
-});
-
-var React$3 = ( React$2 && React ) || React$2;
-
-// TODO: decide on the top-level export form.
-// This is hacky but makes it work with both Rollup and Jest.
-var React = React$3.default || React$3;
-
 export default React

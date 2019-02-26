@@ -24,14 +24,14 @@ ReactDOM.render(
 Import `React` and `ReactDOM` directly from any script with `type="module"`. The package is intended to be available from [`unpkg`](https://unpkg.com) (without having to append `?module` to the package name).
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.3';
+import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.30';
 ```
 
-The version of this package is set to match the version of react that it exposes. It is strongly advised that you specify a version when requesting the module – this speeds up the request time and helps with caching. If you don't specify a number then unpkg will redirect and serve up the latest available version.
+The version of this package is set to match the version of react that it exposes **except with the patch version number multiplied by 10**. It is strongly advised that you specify a version when requesting the module – this speeds up the request time and helps with caching. If you don't specify a number then unpkg will redirect and serve up the latest available version.
 
 ## Implementation
 
-The latest (development) umd builds of `react` and `react-dom` – which you can find [here](https://unpkg.com/react@16.8.3/umd/react.development.js) and [here](https://unpkg.com/react-dom@16.8.3/) respectively – were taken and edited by hand in order to suitable for distribution as an ES module.
+The latest (development) umd builds of `react` and `react-dom` – which you can find [here](https://unpkg.com/react@16.8.3/umd/react.development.js) and [here](https://unpkg.com/react-dom@16.8.3/umd/react-dom.development.js) respectively – were taken and edited by hand in order to suitable for distribution as an ES module.
 
 This is currently an experiment but if it proves popular (and the react team don't decide to output a similar build) then perhaps I might decide to automate this process in order to keep this package up to date with latest releases.
 

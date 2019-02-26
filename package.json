@@ -1,6 +1,6 @@
 {
-  "name": "esm-react",
-  "version": "16.8.3",
+  "name": "es-react",
+  "version": "16.8.30",
   "description": "an es module exposing the latest version of react and react-dom",
   "main": "index.js",
   "keywords": ["react", "es", "module", "import", "export"],

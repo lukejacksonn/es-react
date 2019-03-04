@@ -78,4 +78,4 @@ This is currently an experiment but if it proves popular (and providing the reac
 
 ## Acknowledgements
 
-Barely any of the code in this repo is written by myself. It is just a wrapper for React that is written and maintained by the team at Facebook. Thanks to my employer [Formidable Labs](https://github.com/formidablelabs) for allowing me the time to think about and work on fun and experimental projects like this.
+Barely any of the code in this repo is written by myself. It is just a wrapper for React that is written and maintained by the team at Facebook. Thanks to my employer [Formidable](https://github.com/formidablelabs) for allowing me the time to think about and work on fun and experimental projects like this.

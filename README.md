@@ -14,6 +14,12 @@ ReactDOM.render(
 )
 ```
 
+By default es-react exports the development build of react. For the production build use:
+
+```
+import { React, ReactDOM } from 'https://unpkg.com/es-react-production';
+```
+
 ## Features
 
 - All the latest react features (hooks, suspense, lazy, memo etc.)
@@ -67,8 +73,6 @@ Create a new file, copy the code below into it and then open the file in a brows
 
 </script>
 ```
-
-
 
 ## Implementation
 

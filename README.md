@@ -16,7 +16,7 @@ ReactDOM.render(
 
 By default es-react exports the development build of react. For the production build use:
 
-```
+```js
 import { React, ReactDOM } from 'https://unpkg.com/es-react-production';
 ```
 

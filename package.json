@@ -3,6 +3,7 @@
   "version": "16.8.30",
   "description": "An ES6 module exposing the latest version of react and react-dom",
   "main": "index.js",
+  "module": "index.js",
   "keywords": ["react", "es", "module", "import", "export"],
   "author": "@lukejacksonn",
   "license": "MIT"

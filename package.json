@@ -1,9 +1,16 @@
 {
   "name": "es-react",
-  "version": "16.8.30",
+  "version": "16.8.6",
   "description": "An ES6 module exposing the latest version of react and react-dom",
   "main": "index.js",
-  "keywords": ["react", "es", "module", "import", "export"],
+  "module": "index.js",
+  "keywords": [
+    "react",
+    "es",
+    "module",
+    "import",
+    "export"
+  ],
   "author": "@lukejacksonn",
   "license": "MIT"
 }

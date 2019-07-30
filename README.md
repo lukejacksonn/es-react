@@ -1,4 +1,5 @@
 # es-react
+
 > An ES6 module exposing the latest version of react and react-dom
 
 Ever wanted to just import react into your project as a module **without** a build step or even script tags? It is 2019 now and native browser support for module [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) is [pretty good](https://caniuse.com/#feat=es6-module) so this should be possible is we so wish! Alas, there has not been an ES6 module compatible build released yet.
@@ -11,7 +12,7 @@ import { React, ReactDOM } from 'https://unpkg.com/es-react';
 ReactDOM.render(
   React.createElement('h1', {}, 'Hello from es-react'),
   document.body
-)
+);
 ```
 
 By default es-react exports the development build of react. For the production build use:
@@ -31,7 +32,7 @@ import { React, ReactDOM } from 'https://unpkg.com/es-react-production';
 Import `React` and `ReactDOM` directly from any script with `type="module"`. The package is intended to be available from [`unpkg`](https://unpkg.com) (without having to append `?module` to the package name).
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.30';
+import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.60';
 ```
 
 > The version of this package is set to match the version of react that it exposes **except with the patch version number multiplied by 10** – because I messed up a publish.
@@ -47,7 +48,7 @@ Create a new file, copy the code below into it and then open the file in a brows
 ```js
 <script type="module">
 
-  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.30';
+  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.60';
 
   import htm from 'https://unpkg.com/htm?module'
   const html = htm.bind(React.createElement)
@@ -76,7 +77,7 @@ Create a new file, copy the code below into it and then open the file in a brows
 
 ## Implementation
 
-The latest (development) umd builds of [`react`](https://unpkg.com/react@16.8.3/umd/react.development.js) and [`react-dom`](https://unpkg.com/react-dom@16.8.3/umd/react-dom.development.js) were taken and edited by hand in order to be compatible for distribution as an ES module. Nothing more than that.
+The latest (development) umd builds of [`react`](https://unpkg.com/react@16.8.6/umd/react.development.js) and [`react-dom`](https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js) were taken and edited by hand in order to be compatible for distribution as an ES module. Nothing more than that.
 
 This is currently an experiment but if it proves popular (and providing the react team don't decide to output a similar build themselves) then perhaps I might try to automate this process in order to keep up to date with official releases.
 

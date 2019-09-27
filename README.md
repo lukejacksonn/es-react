@@ -7,7 +7,7 @@ Ever wanted to just import react into your project as a module **without** a bui
 This package allows you import `react` and `react-dom` as ES6 modules from a CDN like [`unpkg`](https://unpkg.com):
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react';
+import React, { ReactDOM } from 'https://unpkg.com/es-react';
 
 ReactDOM.render(
   React.createElement('h1', {}, 'Hello from es-react'),
@@ -18,7 +18,7 @@ ReactDOM.render(
 By default es-react exports the development build of react. For the production build use:
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react-production';
+import React, { ReactDOM } from 'https://unpkg.com/es-react-production';
 ```
 
 ## Features
@@ -32,7 +32,7 @@ import { React, ReactDOM } from 'https://unpkg.com/es-react-production';
 Import `React` and `ReactDOM` directly from any script with `type="module"`. The package is intended to be available from [`unpkg`](https://unpkg.com) (without having to append `?module` to the package name).
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.60';
+import React, { ReactDOM } from 'https://unpkg.com/es-react@16.9.0';
 ```
 
 > The version of this package is set to match the version of react that it exposes **except with the patch version number multiplied by 10** – because I messed up a publish.
@@ -45,39 +45,37 @@ Create a new file, copy the code below into it and then open the file in a brows
 
 > If you would like the browser to reload when you update the code, then you can use a dev server like [servor](https://github.com/lukejacksonn/servor) dependency free by running `npx servor .`.
 
-```js
+```html
 <script type="module">
+  import React, { ReactDOM } from 'https://unpkg.com/es-react@16.9.0';
 
-  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.60';
-
-  import htm from 'https://unpkg.com/htm?module'
-  const html = htm.bind(React.createElement)
+  import htm from 'https://unpkg.com/htm?module';
+  const html = htm.bind(React.createElement);
 
   const Counter = props => {
-    const [count, setCount] = React.useState(parseInt(props.count))
+    const [count, setCount] = React.useState(parseInt(props.count));
     return html`
       <div>
         <h1>${count}</h1>
         <button onClick=${e => setCount(count - 1)}>Decrement</button>
         <button onClick=${e => setCount(count + 1)}>Increment</button>
       </div>
-    `
-  }
+    `;
+  };
 
   ReactDOM.render(
     html`
       <h1>Look Ma! No script tags, no build step</h1>
-      <${Counter} count=0 />
+      <${Counter} count="0" />
     `,
     document.body
-  )
-
+  );
 </script>
 ```
 
 ## Implementation
 
-The latest (development) umd builds of [`react`](https://unpkg.com/react@16.8.6/umd/react.development.js) and [`react-dom`](https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js) were taken and edited by hand in order to be compatible for distribution as an ES module. Nothing more than that.
+The latest (development) umd builds of [`react`](https://unpkg.com/react@16.9.0/umd/react.development.js) and [`react-dom`](https://unpkg.com/react-dom@16.9.0/umd/react-dom.development.js) were taken and edited by hand in order to be compatible for distribution as an ES module. Nothing more than that.
 
 This is currently an experiment but if it proves popular (and providing the react team don't decide to output a similar build themselves) then perhaps I might try to automate this process in order to keep up to date with official releases.
 

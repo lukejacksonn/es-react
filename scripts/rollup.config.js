@@ -4,6 +4,7 @@ import babel from 'rollup-plugin-babel';
 import replace from 'rollup-plugin-replace';
 
 import expandExportsPlugin from './expand-exports-plugin';
+import replaceAssignPlugin from './replace-object-assign';
 
 const exportsMap = (isProduction = false) => ({
   react: `react/cjs/react.${isProduction ? 'production.min' : 'development'}.js`,
@@ -19,6 +20,17 @@ const config = (isProduction = false) => ({
     'prop-types': './src/prop-types.js'
   },
   plugins: [
+    babel({
+      babelrc: false,
+      plugins: [
+        // This expands all our exports
+        [expandExportsPlugin, {
+          map: exportsMap(isProduction)
+        }],
+        // This replaces object-assign with native Object.assign
+        replaceAssignPlugin
+      ],
+    }),
     nodeResolve({
       mainFields: ['module', 'jsnext', 'main'],
       browser: true,
@@ -31,15 +43,6 @@ const config = (isProduction = false) => ({
         'react-dom': Object.keys(require('react-dom')),
         'prop-types': Object.keys(require('prop-types')),
       },
-    }),
-    babel({
-      babelrc: false,
-      plugins: [
-        // This expands all our exports
-        [expandExportsPlugin, {
-          map: exportsMap(isProduction)
-        }]
-      ],
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(

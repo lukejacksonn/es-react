@@ -16,15 +16,15 @@
     "dev.js"
   ],
   "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "prepublishOnly": "rollup -c rollup.config.js"
+    "build": "rollup -c scripts/rollup.config.js",
+    "prepublishOnly": "rollup -c scripts/rollup.config.js"
   },
   "author": "@lukejacksonn",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "babel-plugin-macros": "^2.6.1",
     "codegen.macro": "^3.0.0",
+    "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "rollup": "^1.21.4",

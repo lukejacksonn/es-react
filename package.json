@@ -24,6 +24,7 @@
     "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-dom": "16.9.0",
+    "react-is": "^16.10.1",
     "rollup": "^1.21.4",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",

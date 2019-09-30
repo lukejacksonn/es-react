@@ -8,6 +8,7 @@ import replaceAssignPlugin from './replace-object-assign';
 
 const exportsMap = (isProduction = false) => ({
   react: `react/cjs/react.${isProduction ? 'production.min' : 'development'}.js`,
+  'react-is': `react-is/cjs/react-is.${isProduction ? 'production.min' : 'development'}.js`,
   'react-dom': `react-dom/cjs/react-dom.${isProduction ? 'production.min' : 'development'}.js`,
   'prop-types': 'prop-types/index.js',
 });
@@ -16,6 +17,7 @@ const config = (isProduction = false) => ({
   input: {
     index: './src/index.js',
     react: './src/react.js',
+    'react-is': './src/react-is.js',
     'react-dom': './src/react-dom.js',
     'prop-types': './src/prop-types.js'
   },
@@ -40,6 +42,7 @@ const config = (isProduction = false) => ({
       include: /\/node_modules\//,
       namedExports: {
         react: Object.keys(require('react')),
+        'react-is': Object.keys(require('react-is')),
         'react-dom': Object.keys(require('react-dom')),
         'prop-types': Object.keys(require('prop-types')),
       },

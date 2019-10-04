@@ -4,3 +4,4 @@ import PropTypes from './prop-types';
 
 export { React, ReactDOM, PropTypes };
 export * from './react';
+export default React;

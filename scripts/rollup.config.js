@@ -64,6 +64,9 @@ export default [
   {
     ...config(true),
     output: {
+      compact: true,
+      interop: false,
+      freeze: false,
       dir: './',
       entryFileNames: '[name].js',
       chunkFileNames: '[name]-[hash].js',
@@ -73,6 +76,9 @@ export default [
   {
     ...config(false),
     output: {
+      compact: true,
+      interop: false,
+      freeze: false,
       dir: './dev',
       entryFileNames: '[name].js',
       chunkFileNames: '[name]-[hash].js',

@@ -10,6 +10,10 @@
     "import",
     "export"
   ],
+  "repository": "https://www.github.com/lukejacksonn/es-react",
+  "bugs": {
+    "url": "https://github.com/lukejacksonn/es-react/issues"
+  },
   "scripts": {
     "build": "rollup -c scripts/rollup.config.js",
     "clean": "rimraf *.js dev",

@@ -1,13 +1,13 @@
 # es-react
 
-> An ES6 module exposing the latest version of react and react-dom
+> An ES6 module exposing the latest version of react, react-dom, react-is, and prop-types
 
 Ever wanted to just import react into your project as a module **without** a build step or even script tags? It is 2019 now and native browser support for module [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) is [pretty good](https://caniuse.com/#feat=es6-module) so this should be possible is we so wish! Alas, there has not been an ES6 module compatible build released yet.
 
 This package allows you import `react` and `react-dom` as ES6 modules from a CDN like [`unpkg`](https://unpkg.com):
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react';
+import { React, ReactDOM, ReactIs, PropTypes } from 'https://unpkg.com/es-react';
 
 ReactDOM.render(
   React.createElement('h1', {}, 'Hello from es-react'),
@@ -15,16 +15,32 @@ ReactDOM.render(
 );
 ```
 
-By default es-react exports the development build of react. For the production build use:
+By default es-react exports the production build of react. For the development build use the `/dev` subfolder:
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react-production';
+import { React, ReactDOM } from 'https://unpkg.com/es-react/dev';
 ```
+
+You may also import any members of the React package directly:
+
+```js
+import React, { Component, useState /* ... */ } from 'https://unpkg.com/es-react';
+```
+
+And every package is also being provided as a separate file:
+
+- `es-react/index.js`: Exports all of `React` and exports `{ React, ReactDOM, ReactIs, PropTypes }`
+- `es-react/react.js`: Exports all of `React` plus a default export
+- `es-react/react-dom.js`: Exports all of `ReactDOM` plus a default export (but not `react-dom/server`)
+- `es-react/react-is.js`: Exports all of `ReactIs` plus a default export
+- `es-react/prop-types.js`: Exports all of `PropTypes` plus a default export
+
+All development-versions of these packages are also available under `es-react/dev/`.
 
 ## Features
 
-- All the latest react features (hooks, suspense, lazy, memo etc.)
-- Use react directly from any javascript file (no build step required)
+- All the latest React features (hooks, suspense, lazy, memo etc.)
+- Use React directly from any javascript file (no build step required)
 - Compatible with [`htm`](https://github.com/developit/htm) (for JSX compilation at runtime)
 
 ## Usage
@@ -32,10 +48,8 @@ import { React, ReactDOM } from 'https://unpkg.com/es-react-production';
 Import `React` and `ReactDOM` directly from any script with `type="module"`. The package is intended to be available from [`unpkg`](https://unpkg.com) (without having to append `?module` to the package name).
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.60';
+import { React, ReactDOM } from 'https://unpkg.com/es-react@16.9.0';
 ```
-
-> The version of this package is set to match the version of react that it exposes **except with the patch version number multiplied by 10** – because I messed up a publish.
 
 It is strongly advised that you specify a version when requesting the module – this speeds up the request time and helps with caching. If you don't specify a number then unpkg will redirect and serve up the latest available version.
 
@@ -47,8 +61,7 @@ Create a new file, copy the code below into it and then open the file in a brows
 
 ```js
 <script type="module">
-
-  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.8.60';
+  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.9.0';
 
   import htm from 'https://unpkg.com/htm?module'
   const html = htm.bind(React.createElement)
@@ -77,9 +90,10 @@ Create a new file, copy the code below into it and then open the file in a brows
 
 ## Implementation
 
-The latest (development) umd builds of [`react`](https://unpkg.com/react@16.8.6/umd/react.development.js) and [`react-dom`](https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js) were taken and edited by hand in order to be compatible for distribution as an ES module. Nothing more than that.
+The latest versions of all packages are installed via (pinned) entries in `package.json` and built and bundled using Rollup with automatic code splitting.
 
-This is currently an experiment but if it proves popular (and providing the react team don't decide to output a similar build themselves) then perhaps I might try to automate this process in order to keep up to date with official releases.
+The exports of each package are automatically expanded and `object-assign` is stripped from the output, since all browsers that support ESM will also support `Object.assign`
+(See `scripts/expand-exports-plugin.js` and `scripts/replace-object-assign.js` for the Babel plugins that do this)
 
 ## Acknowledgements
 

@@ -1,6 +1,6 @@
 {
   "name": "es-react",
-  "version": "16.9.0-rc.1",
+  "version": "16.9.0",
   "description": "An ES6 module exposing the latest version of react and react-dom",
   "module": "index.js",
   "keywords": [

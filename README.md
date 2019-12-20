@@ -7,10 +7,15 @@ Ever wanted to just import react into your project as a module **without** a bui
 This package allows you import `react` and `react-dom` as ES6 modules from a CDN like [`unpkg`](https://unpkg.com):
 
 ```js
-import { React, ReactDOM, ReactIs, PropTypes } from 'https://unpkg.com/es-react';
+import {
+  React,
+  ReactDOM,
+  ReactIs,
+  PropTypes
+} from "https://unpkg.com/es-react";
 
 ReactDOM.render(
-  React.createElement('h1', {}, 'Hello from es-react'),
+  React.createElement("h1", {}, "Hello from es-react"),
   document.body
 );
 ```
@@ -18,13 +23,16 @@ ReactDOM.render(
 By default es-react exports the production build of react. For the development build use the `/dev` subfolder:
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react/dev';
+import { React, ReactDOM } from "https://unpkg.com/es-react/dev";
 ```
 
 You may also import any members of the React package directly:
 
 ```js
-import React, { Component, useState /* ... */ } from 'https://unpkg.com/es-react';
+import React, {
+  Component,
+  useState /* ... */
+} from "https://unpkg.com/es-react";
 ```
 
 And every package is also being provided as a separate file:
@@ -48,7 +56,7 @@ All development-versions of these packages are also available under `es-react/de
 Import `React` and `ReactDOM` directly from any script with `type="module"`. The package is intended to be available from [`unpkg`](https://unpkg.com) (without having to append `?module` to the package name).
 
 ```js
-import { React, ReactDOM } from 'https://unpkg.com/es-react@16.9.0';
+import { React, ReactDOM } from "https://unpkg.com/es-react@16.12.0";
 ```
 
 It is strongly advised that you specify a version when requesting the module – this speeds up the request time and helps with caching. If you don't specify a number then unpkg will redirect and serve up the latest available version.
@@ -61,7 +69,7 @@ Create a new file, copy the code below into it and then open the file in a brows
 
 ```js
 <script type="module">
-  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.9.0';
+  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.12.0';
 
   import htm from 'https://unpkg.com/htm?module'
   const html = htm.bind(React.createElement)

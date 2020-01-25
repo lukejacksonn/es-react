@@ -10,6 +10,7 @@ const exportsMap = (isProduction = false) => ({
   react: `react/cjs/react.${isProduction ? 'production.min' : 'development'}.js`,
   'react-is': `react-is/cjs/react-is.${isProduction ? 'production.min' : 'development'}.js`,
   'react-dom': `react-dom/cjs/react-dom.${isProduction ? 'production.min' : 'development'}.js`,
+  'react-dom-server': `react-dom/cjs/react-dom-server.node.${isProduction ? 'production.min' : 'development'}.js`,
   'prop-types': 'prop-types/index.js',
 });
 
@@ -19,6 +20,7 @@ const config = (isProduction = false) => ({
     react: './src/react.js',
     'react-is': './src/react-is.js',
     'react-dom': './src/react-dom.js',
+    'react-dom-server': './src/react-dom-server.js',
     'prop-types': './src/prop-types.js'
   },
   plugins: [
@@ -44,6 +46,7 @@ const config = (isProduction = false) => ({
         react: Object.keys(require('react')),
         'react-is': Object.keys(require('react-is')),
         'react-dom': Object.keys(require('react-dom')),
+        'react-dom-server': Object.keys(require('react-dom/server')),
         'prop-types': Object.keys(require('prop-types')),
       },
     }),

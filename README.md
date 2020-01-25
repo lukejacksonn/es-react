@@ -39,7 +39,8 @@ And every package is also being provided as a separate file:
 
 - `es-react/index.js`: Exports all of `React` and exports `{ React, ReactDOM, ReactIs, PropTypes }`
 - `es-react/react.js`: Exports all of `React` plus a default export
-- `es-react/react-dom.js`: Exports all of `ReactDOM` plus a default export (but not `react-dom/server`)
+- `es-react/react-dom.js`: Exports all of `ReactDOM` plus a default export
+- `es-react/react-dom-server.js`: Exports all of `ReactDOM` server
 - `es-react/react-is.js`: Exports all of `ReactIs` plus a default export
 - `es-react/prop-types.js`: Exports all of `PropTypes` plus a default export
 

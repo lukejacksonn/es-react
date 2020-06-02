@@ -3,6 +3,7 @@
   "version": "16.12.0",
   "description": "An ES6 module exposing the latest version of react and react-dom",
   "module": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "react",
     "es",
@@ -35,5 +36,11 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0"
+  },
+  "dependencies": {
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-is": "^16.7.1"
   }
 }

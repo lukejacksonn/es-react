@@ -2,28 +2,25 @@
 
 > An ES6 module exposing the latest version of react, react-dom, react-is, and prop-types
 
-Ever wanted to just import react into your project as a module **without** a build step or even script tags? It is 2019 now and native browser support for module [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) is [pretty good](https://caniuse.com/#feat=es6-module) so this should be possible if we so wish! Alas, there has not been an ES6 module compatible build released yet.
+Ever wanted to just import react into your project as a module **without** a build step or even script tags? Native browser support for module [imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) is [pretty good](https://caniuse.com/#feat=es6-module) so this should be an option for react developers now! Alas, there has not been an ES6 module compatible build released yet.
 
 This package allows you import `react` and `react-dom` as ES6 modules from a CDN like [`unpkg`](https://unpkg.com):
 
-```js
-import {
-  React,
-  ReactDOM,
-  ReactIs,
-  PropTypes
-} from "https://unpkg.com/es-react";
+```html
+<script type="module">
+  import { React, ReactDOM, PropTypes } from 'https://unpkg.com/es-react';
 
-ReactDOM.render(
-  React.createElement("h1", {}, "Hello from es-react"),
-  document.body
-);
+  ReactDOM.render(
+    React.createElement('h1', {}, 'Hello from es-react'),
+    document.body
+  );
+</script>
 ```
 
-By default es-react exports the production build of react. For the development build use the `/dev` subfolder:
+By default es-react exports the **production build** of react. For the **development build** use the `/dev` subfolder:
 
 ```js
-import { React, ReactDOM } from "https://unpkg.com/es-react/dev";
+import { React, ReactDOM } from 'https://unpkg.com/es-react/dev';
 ```
 
 You may also import any members of the React package directly:
@@ -31,8 +28,8 @@ You may also import any members of the React package directly:
 ```js
 import React, {
   Component,
-  useState /* ... */
-} from "https://unpkg.com/es-react";
+  useState /* ... */,
+} from 'https://unpkg.com/es-react';
 ```
 
 And every package is also being provided as a separate file:
@@ -42,6 +39,7 @@ And every package is also being provided as a separate file:
 - `es-react/react-dom.js`: Exports all of `ReactDOM` plus a default export (but not `react-dom/server`)
 - `es-react/react-is.js`: Exports all of `ReactIs` plus a default export
 - `es-react/prop-types.js`: Exports all of `PropTypes` plus a default export
+- `es-react/react-dom-server.js`: Exports all of `ReactDOMServerBrowser` plus a default export
 
 All development-versions of these packages are also available under `es-react/dev/`.
 
@@ -56,7 +54,7 @@ All development-versions of these packages are also available under `es-react/de
 Import `React` and `ReactDOM` directly from any script with `type="module"`. The package is intended to be available from [`unpkg`](https://unpkg.com) (without having to append `?module` to the package name).
 
 ```js
-import { React, ReactDOM } from "https://unpkg.com/es-react@16.12.0";
+import { React, ReactDOM } from 'https://unpkg.com/es-react@16.13.1';
 ```
 
 It is strongly advised that you specify a version when requesting the module – this speeds up the request time and helps with caching. If you don't specify a number then unpkg will redirect and serve up the latest available version.
@@ -65,11 +63,11 @@ It is strongly advised that you specify a version when requesting the module –
 
 Create a new file, copy the code below into it and then open the file in a browser – or [try online](https://codepen.io/lukejacksonn/pen/EMxVWM).
 
-> If you would like the browser to reload when you update the code, then you can use a dev server like [servor](https://github.com/lukejacksonn/servor) dependency free by running `npx servor .`.
+> If you would like the browser to reload when you update the code, then you can use a dev server like [servor](https://github.com/lukejacksonn/servor) dependency free by running `npx servor --reload --browse`.
 
 ```js
 <script type="module">
-  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.12.0';
+  import { React, ReactDOM } from 'https://unpkg.com/es-react@16.13.1';
 
   import htm from 'https://unpkg.com/htm?module'
   const html = htm.bind(React.createElement)

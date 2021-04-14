@@ -4,3 +4,4 @@
 !*.js
 !README.md
 !package.json
+!/*.d.ts

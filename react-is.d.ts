@@ -1,1 +1,1 @@
-export * from 'react-is';
+export * from 'react-is/next';
